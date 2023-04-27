@@ -52,7 +52,7 @@ async function registerChainhookPredicates(this: FastifyInstance) {
         version: 1,
         chain: 'bitcoin',
         networks: {
-          mainnet: {
+          testnet: {
             start_block: blockHeight,
             if_this: {
               scope: 'ordinals_protocol',

@@ -31,7 +31,7 @@ const schema = Type.Object({
   /** Event server body limit (bytes) */
   EVENT_SERVER_BODY_LIMIT: Type.Integer({ default: 20971520 }),
   /** Hostname that will be reported to the chainhook node so it can call us back with events */
-  EXTERNAL_HOSTNAME: Type.String({ default: '127.0.0.1' }),
+  EXTERNAL_HOSTNAME: Type.String({ default: '127.0.0.1:3099' }),
 
   /** Hostname of the chainhook node we'll use to register predicates */
   CHAINHOOK_NODE_RPC_HOST: Type.String({ default: '127.0.0.1' }),
@@ -41,13 +41,13 @@ const schema = Type.Object({
    * Authorization token that the chainhook node must send with every event to make sure it's
    * coming from the valid instance
    */
-  CHAINHOOK_NODE_AUTH_TOKEN: Type.String(),
+  CHAINHOOK_NODE_AUTH_TOKEN: Type.String({ default: 'a' }),
 
-  PGHOST: Type.String(),
-  PGPORT: Type.Number({ default: 5432, minimum: 0, maximum: 65535 }),
-  PGUSER: Type.String(),
-  PGPASSWORD: Type.String(),
-  PGDATABASE: Type.String(),
+  PGHOST: Type.String({ default: 'localhost' }),
+  PGPORT: Type.Number({ default: 5433, minimum: 0, maximum: 65535 }),
+  PGUSER: Type.String({ default: 'postgres' }),
+  PGPASSWORD: Type.String({ default: 'postgres' }),
+  PGDATABASE: Type.String({ default: 'postgres' }),
   /** Limit to how many concurrent connections can be created */
   PG_CONNECTION_POOL_MAX: Type.Number({ default: 10 }),
   PG_IDLE_TIMEOUT: Type.Number({ default: 30 }),
