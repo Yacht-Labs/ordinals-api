@@ -13,7 +13,7 @@ export function up(pgm: MigrationBuilder): void {
     block_height: {
       type: 'int',
       notNull: true,
-      default: 2413343, // First inscription block height
+      default: 0, // First inscription block height
     },
   });
   // Ensure only a single row can exist
